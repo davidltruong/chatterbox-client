@@ -15,7 +15,9 @@ var MessagesView = {
   },
 
   renderMessage: function(message) {
+    var divmessage = $('<div>' + message + '<div/>');
     // TODO: Render a single message.
+    this.$chats.append(divmessage);
   },
 
   handleClick: function(event) {

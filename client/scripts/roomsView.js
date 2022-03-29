@@ -16,6 +16,9 @@ var RoomsView = {
   },
 
   renderRoom: function(roomname) {
+    var divRoom = $('<div>' + roomname + '<div/>');
+    // TODO: Render a single message.
+    this.$select.append(divRoom);
     // TODO: Render out a single room.
   },
 
