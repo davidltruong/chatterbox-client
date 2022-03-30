@@ -12,6 +12,7 @@ var MessagesView = {
 
   render: function(data) {
     // var data = Parse.readAll();
+    console.log(data[0]);
     // console.log('data ' + data);
     for (var i = 0; i < data.length; i++) {
       MessagesView.renderMessage(data[i]);
@@ -29,6 +30,16 @@ var MessagesView = {
   handleClick: function(event) {
     // TODO: handle a user clicking on a message
     // (this should add the sender to the user's friend list).
+  },
+
+  refresh: function (data) {
+  //  setTimeout(this.refresh.bind(this), 10000);
+    // $(chats).empty();
+    // App.fetch();
+    // var latest = data[0];
+    var lastPostID = Messages._data[0].message_id;
+    console.log(lastPostID);
+
   }
 
 };

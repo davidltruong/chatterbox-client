@@ -19,6 +19,8 @@ var App = {
     App.startSpinner();
     App.fetch(App.stopSpinner);
 
+    // Our refresh  method
+    // MessagesView.refresh(data, Messages._data[0].message_id);
     // TODO: Make sure the app loads data from the API
     // continually, instead of just once at the start.
   },
@@ -27,8 +29,10 @@ var App = {
     Parse.readAll((data) => {
       // examine the response from the server request:
       console.log(data);
+      Messages._data = data;
+      console.log(Messages._data[0].message_id);
       MessagesView.render(data);
-
+      callback();
       // TODO: Use the data to update Messages and Rooms
       // and re-render the corresponding views.
     });
