@@ -12,7 +12,7 @@ var MessagesView = {
 
   render: function(data) {
     // var data = Parse.readAll();
-    console.log(data[0]);
+    // console.log(data[0]);
     // console.log('data ' + data);
     for (var i = 0; i < data.length; i++) {
       MessagesView.renderMessage(data[i]);

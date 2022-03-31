@@ -9,6 +9,15 @@ var Messages = {
 
   // TODO: Define methods which allow you to retrieve from,
   // add to, and generally interact with the messages.
+  add: function (data) {
+    Messages._data = data;
+    // console.log('messages.data ' + JSON.stringify(Messages._data));
+  },
+  chatroom: function (chatroom) {
+    // create an empty array
+    // loop through _data
+    // add only messages that have that chatroom to empty array
+    // return empty array
 
+  }
 };
-
