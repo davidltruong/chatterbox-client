@@ -10,12 +10,12 @@ var RoomsView = {
     // TODO: Perform any work which needs to be done
     // when this view loads.
     $('.select').on('change', RoomsView.handleChange);
+    $('.new').on('click', RoomsView.handleClick);
   },
 
   render: function() {
-    console.log('render');
     var roomlist = Object.keys(Rooms._data);
-    console.log(roomlist);
+    $('.select').empty();
     for (var i = 0; i < roomlist.length; i++) {
       RoomsView.renderRoom(roomlist[i]);
     }
@@ -23,7 +23,6 @@ var RoomsView = {
   },
 
   renderRoom: function(roomname) {
-    console.log('renderRoom');
     var divRoom = $('<option value=' + roomname + '>' + roomname + '</option>');
     // TODO: Render a single message.
     RoomsView.$select.append(divRoom);
@@ -39,6 +38,15 @@ var RoomsView = {
   },
 
   handleClick: function(event) {
+    var newRoom = $('.newRoom').val();
+    var dummyMsg = {
+      username: App.username,
+      text: App.username + ' created a new room called ' + newRoom,
+      roomname: newRoom
+    };
+    RoomsView.renderRoom(newRoom);
+    $('select').val(newRoom);
+    $(chats).empty();
     // TODO: Handle the user clicking the "Add Room" button.
   }
 

@@ -29,12 +29,25 @@ var App = {
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
       // examine the response from the server request:
-      console.log(data);
       Messages.add(data);
-      MessagesView.render(data);
+      // MessagesView.render(data);
       callback();
       Rooms.addRooms(data);
+
+      var roomData = Rooms._data.null;
+      if ($('select').val() !== undefined) {
+        var roomData = Rooms._data[$('select').val()];
+        var room = $('select').val();
+      }
+
+      $(chats).empty();
+      MessagesView.render(roomData);
       RoomsView.render();
+      if ( roomData === Rooms._data.null) {
+        $('select').val('null');
+      } else {
+        $('select').val(room);
+      }
       // TODO: Use the data to update Messages and Rooms
       // and re-render the corresponding views.
     });

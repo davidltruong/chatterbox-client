@@ -14,9 +14,13 @@ var MessagesView = {
     // var data = Parse.readAll();
     // console.log(data[0]);
     // console.log('data ' + data);
+    // if (data === undefined) {
+    //   console.log('New Room');
+    // } else {
     for (var i = 0; i < data.length; i++) {
       MessagesView.renderMessage(data[i]);
     }
+    // }
     // TODO: Render _all_ the messages.
   },
 

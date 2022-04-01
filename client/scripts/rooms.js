@@ -10,6 +10,7 @@ var Rooms = {
   // TODO: Define methods which allow you to add rooms, update the list,
   // mark a room as selected, etc.
   addRooms: function (data) {
+    Rooms._data = {};
     for (var i = 0; i < data.length; i++) {
       if (Rooms._data[data[i].roomname]) {
         Rooms._data[data[i].roomname].push(data[i]);

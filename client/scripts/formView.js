@@ -8,23 +8,23 @@ var FormView = {
 
   initialize: function() {
     FormView.$form.on('submit', FormView.handleSubmit);
-    $('.button').on('click', FormView.update);
+    $('.update').on('click', FormView.update);
   },
 
   handleSubmit: function(event) {
     // Stop the browser from submitting the form
     event.preventDefault();
     $message = $('#message')[0].value;
+    var selectedRoom = $( '.select' ).val();
     var message = {
       username: App.username,
       text: $('#message')[0].value,
-      roomname: null
+      roomname: selectedRoom
     };
     Parse.create(message);
+    FormView.update();
     // TODO: Currently, this is all handleSubmit does.
     // Make this function actually send a message to the Parse API.
-
-    console.log('click!');
   },
 
   setStatus: function(active) {
@@ -33,8 +33,12 @@ var FormView = {
   },
 
   update: function (event) {
-    console.log('click');
     $(chats).empty();
     App.fetch();
+  },
+
+  addRoom: function (event) {
+    var newRoom = $('.newRoom').val();
+
   }
 };
