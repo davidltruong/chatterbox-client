@@ -9,7 +9,7 @@ var Rooms = {
 
   // TODO: Define methods which allow you to add rooms, update the list,
   // mark a room as selected, etc.
-  addRooms: function (data) {
+  addRoom: function (data) {
     Rooms._data = {};
     for (var i = 0; i < data.length; i++) {
       if (Rooms._data[data[i].roomname]) {
@@ -18,5 +18,8 @@ var Rooms = {
         Rooms._data[data[i].roomname] = [data[i]];
       }
     }
+  },
+  add: function (event) {
+    RoomsView.handleClick();
   }
 };

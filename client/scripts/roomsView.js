@@ -10,7 +10,7 @@ var RoomsView = {
     // TODO: Perform any work which needs to be done
     // when this view loads.
     $('.select').on('change', RoomsView.handleChange);
-    $('.new').on('click', RoomsView.handleClick);
+    $('#rooms').on('click', Rooms.add);
   },
 
   render: function() {
@@ -33,11 +33,12 @@ var RoomsView = {
     var selectedRoom = $( '.select' ).val();
     var roomdata = Rooms._data[selectedRoom];
     $(chats).empty();
-    MessagesView.render(roomdata);
+    App.fetch();
     // TODO: Handle a user selecting a different room.
   },
 
   handleClick: function(event) {
+    console.log('click');
     var newRoom = $('.newRoom').val();
     var dummyMsg = {
       username: App.username,

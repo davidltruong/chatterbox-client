@@ -18,6 +18,7 @@ var App = {
     // Fetch initial batch of messages
     App.startSpinner();
     App.fetch(App.stopSpinner);
+    Friends.initialize();
 
 
     // Our refresh  method
@@ -32,7 +33,9 @@ var App = {
       Messages.add(data);
       // MessagesView.render(data);
       callback();
-      Rooms.addRooms(data);
+      Rooms.addRoom(data);
+
+      Friends.add(data);
 
       var roomData = Rooms._data.null;
       if ($('select').val() !== undefined) {
@@ -48,6 +51,7 @@ var App = {
       } else {
         $('select').val(room);
       }
+      $('.username').on('click', Friends.toggleStatus);
       // TODO: Use the data to update Messages and Rooms
       // and re-render the corresponding views.
     });

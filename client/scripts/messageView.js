@@ -7,18 +7,27 @@ var MessageView = {
   // TODO: Update this template accordingly.
   render: _.template(
     "<div>" +
-      "<div class='username'>" +
+      "<div class='username' " + "<%= username %>" + ">" +
         "<h4>" + "<%= username %>" + "</h4>" +
       "</div>" +
       "<div class='text'>" +
         "<p>" + "<%= text %>" + "</p>" +
       "</div>" +
     "</div>"
+  ),
+
+  renderFriend: _.template(
+    "<div>" +
+      "<div class='username friend' " + "<%= username %>" + ">" +
+        "<h4>" + "<%= username %>" + "</h4>" +
+      "</div>" +
+      "<div class='text friend'>" +
+        "<p>" + "<%= text %>" + "</p>" +
+      "</div>" +
+    "</div>"
   )
 
 };
-
-
 /*
 <div class='username'>
   <h1>username1</h1>

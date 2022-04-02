@@ -27,7 +27,13 @@ var MessagesView = {
   renderMessage: function(message) {
     // var divmessage = $('<div>' + message + '<div/>');
     // TODO: Render a single message.
-    var divmessage = MessageView.render(message);
+    //                                                      if friend then run renderfriend
+    //                                                      else run render
+    if (Friends._data[message.username] === true) {
+      var divmessage = MessageView.renderFriend(message);
+    } else {
+      var divmessage = MessageView.render(message);
+    }
     this.$chats.append(divmessage);
   },
 
